@@ -60,4 +60,15 @@ export class MindmapService {
   delete(id: string) {
     return this.nodeRepo.delete(id);
   }
+
+	async savePositions(positions: { id: string; x: number; y: number }[]) {
+  for (const pos of positions) {
+    await this.nodeRepo.update(pos.id, {
+      x: pos.x,
+      y: pos.y
+    });
+  }
+  return { message: 'Позиции обновлены' };
+}
+
 }

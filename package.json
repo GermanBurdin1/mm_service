@@ -1,28 +1,33 @@
 {
-  "name": "mindmap-service",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@nestjs/common": "^11.1.1",
-    "@nestjs/config": "^4.0.2",
-    "@nestjs/core": "^11.1.1",
-    "@nestjs/platform-express": "^11.1.1",
-    "@nestjs/typeorm": "^11.0.0",
-    "pg": "^8.16.0",
-    "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.2",
-    "typeorm": "^0.3.24"
-  },
-  "devDependencies": {
-    "@types/node": "^22.15.18",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0"
-  }
+	"name": "mindmap-service",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"start": "nest start",
+		"start:dev": "nest start --watch",
+		"typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+  	"migration:generate": "npm run typeorm -- migration:generate",
+		"migration:run": "npm run typeorm -- migration:run -d src/data-source.ts"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"@nestjs/common": "^11.1.1",
+		"@nestjs/config": "^4.0.2",
+		"@nestjs/core": "^11.1.1",
+		"@nestjs/platform-express": "^11.1.1",
+		"@nestjs/typeorm": "^11.0.0",
+		"pg": "^8.16.0",
+		"reflect-metadata": "^0.2.2",
+		"rxjs": "^7.8.2",
+		"typeorm": "^0.3.24"
+	},
+	"devDependencies": {
+		"@types/node": "^22.15.18",
+		"ts-node": "^10.9.2",
+		"ts-node-dev": "^2.0.0",
+		"tsconfig-paths": "^4.2.0"
+	}
 }

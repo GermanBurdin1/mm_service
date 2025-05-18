@@ -19,7 +19,8 @@ import { MindmapNode } from './mindmap/entities/node.entity';
         password: config.get<string>('DB_PASSWORD'),
         database: config.get<string>('DB_NAME'),
         entities: [MindmapNode],
-        synchronize: true,
+        migrations: ['dist/migrations/*.js'], // ✅ используем JS при build
+        synchronize: false, // ⚠️ выключено для миграций
       }),
     }),
 

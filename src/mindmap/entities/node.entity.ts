@@ -5,12 +5,11 @@ export class MindmapNode {
 	@PrimaryColumn('uuid')
 	id!: string;
 
-
 	@Column()
 	title!: string;
 
-	@Column({ nullable: true })
-	parentId!: number;
+	@Column({ type: 'uuid', nullable: true })
+	parentId!: string | null;
 
 	@Column({ type: 'jsonb', nullable: true })
 	position!: { x: number; y: number };
@@ -29,6 +28,13 @@ export class MindmapNode {
 
 	@Column({ type: 'text', nullable: true })
 	example!: string;
+
+	@Column({ type: 'float', nullable: true })
+x!: number;
+
+@Column({ type: 'float', nullable: true })
+y!: number;
+
 
 }
 

@@ -1,5 +1,10 @@
+// data-source.ts
+import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import { MindmapNode } from './src/mindmap/entities/node.entity';
+import { MindmapNode } from './mindmap/entities/node.entity';
+import * as dotenv from 'dotenv';
+
+dotenv.config(); // загружаем .env
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -7,8 +12,9 @@ export const AppDataSource = new DataSource({
   port: 5432,
   username: 'postgres',
   password: 'postgre',
-  database: 'mindmap_service',
+  database: 'mindmap_db',
   entities: [MindmapNode],
   migrations: ['src/migrations/*.ts'],
   synchronize: false,
 });
+

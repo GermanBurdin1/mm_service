@@ -44,4 +44,10 @@ export class MindmapController {
   remove(@Param('id') id: string) {
     return this.mindmapService.delete(id);
   }
+
+	@Post('save-positions')
+savePositions(@Body() body: { nodes: { id: string; x: number; y: number }[] }) {
+  return this.mindmapService.savePositions(body.nodes);
+}
+
 }
